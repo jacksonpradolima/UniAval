@@ -1,0 +1,52 @@
+\documentclass[a4paper, 11pt, addpoints]{exam} % Adicione o parametro answers para ver as respostas
+
+% Pacote que contém a configuracao do modelo
+\usepackage{UniAval}
+
+\begin{document}
+
+% Define a configuracao do cabecalho
+\nomeUniversidade{Universidade Tecnológica Federal do Paraná}
+\logoUniversidade{fig/utfpr}
+\escalaLogoUniversidade{0.06} %0.06 - UTFPR / 0.25 - UFPR
+\nomeCurso{Campus Curitiba}
+\nomeProfessor{Nome do Professor}
+\nomeDisciplina{Nome da Disciplina}
+\dataDaProva{14/05/2018}
+\siglaRegistroAcademico{RA}
+
+% Mostra o cabecalho
+\info
+
+% Mostra as questoes existentes e quanto o aluno acertou em cada uma
+\pontuacao
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%AAG: tipos de questoes:
+%  - \begin{checkboxes}
+%  - \begin{choices}
+%  - \begin{oneparchoices}
+%  - \begin{oneparcheckboxes}
+% vide exam.cls
+
+% Documentação do exam.cls: http://www-math.mit.edu/~psh/exam/examdoc.pdf
+
+\vspace{5pt}
+    
+\begin{questions}
+	\question[10] \input{questoes/vetores/testemesa1.tex} 
+	\question[5] \input{questoes/vetores/instrucoes1.tex} 
+	\question[5] \input{questoes/alocacao_dinamica/teorica1.tex} 
+	\question \input{questoes/struct/questao3.tex}
+	\question \input{questoes/lista/questao1.tex}
+	\question \input{questoes/estruturasdedados/questao9.tex}
+\end{questions}
+
+%Mensagem ao final da avaliacao
+% \begin{bottompar}
+% 	{\bf Porque esse é meu caminho ninja!}
+% 	\includegraphics[width=0.1\textwidth]{fig/aldeia.png}
+% \end{bottompar}
+
+\end{document}

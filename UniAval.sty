@@ -1,0 +1,177 @@
+\ProvidesPackage{UniAval}
+
+% the various libraries we will be using
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{amssymb,amsthm,amsmath,float}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage[export]{adjustbox}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{graphicx,color}
+\usepackage{enumerate}
+\usepackage{tabularx}
+\usepackage{booktabs} % To thicken table lines
+
+\usepackage{tikz}
+
+\usepackage{listings} % mostrar codigos http://tex.stackexchange.com/questions/68091/how-do-i-add-syntax-coloring-to-my-c-source-code-in-beamer
+\definecolor{greenE}{RGB}{29, 100, 71}
+\definecolor{cinz}{RGB}{116,113,94}
+\definecolor{includes}{RGB}{133,23,179}
+\definecolor{main}{RGB}{164,152,17}
+\lstset{language=C++,
+        basicstyle=\ttfamily,
+        tabsize=2,
+	    keepspaces,
+	    aboveskip=5pt,
+	    columns=fixed,
+	    showstringspaces=false,
+	    extendedchars=true,
+	    breaklines=true,
+	    showtabs=false,
+	    showspaces=false,
+	    showstringspaces=false,
+        keywordstyle=\color{blue}\ttfamily,
+        stringstyle=\color{greenE}\ttfamily,
+        commentstyle=\color{red}\ttfamily,
+        morecomment=[l][\color{includes}]{\#}
+	}
+
+\setlength{\columnsep}{25pt}
+\lstdefinestyle{js}{
+    basicstyle=\ttfamily,
+    breaklines=true,
+    breakatwhitespace=true,
+    tabsize=1,
+    resetmargins=true,
+    xleftmargin=0pt,
+    frame=none
+}
+
+\newenvironment{bottompar}{\flushright\par\vspace*{\fill}}{\clearpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Espacamento e Layout
+
+\pagestyle{headandfoot}
+
+\setlength{\topmargin}{-1.5cm}
+\setlength{\topskip}{-1.5cm}    % between header and text
+\setlength{\textheight}{26cm} % height of main text
+%\setlength{\textwidth}{18cm}    % width of text
+%\setlength{\oddsidemargin}{-.2cm} % odd page left margin
+%\setlength{\evensidemargin}{-.2cm} % even page left margin
+
+\extrawidth{2cm}
+\extraheadheight{.25in}
+
+\linespread{1}
+% ===========================================================================-
+
+\newcolumntype{x}[1]{%
+>{\centering\hspace{0pt}}p{#1}}%
+
+% ===========================================================================-
+% Permite desenhar, por exemplo, listas encadeadas
+
+\usetikzlibrary{chains,shapes}
+\newcommand{\chainlabel}[2]{\path [<-, draw, shorten >=10pt] (#1) |- node [at end] {#2} ++(-1,1);}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Comandos
+
+\newcommand{\nomeUniversidade}[1]{
+ \newcommand{\universidade}{#1}
+}
+
+\newcommand{\nomeCurso}[1]{
+ \newcommand{\curso}{#1}
+}
+
+\newcommand{\logoUniversidade}[1]{
+ \newcommand{\logo}{#1}
+}
+
+\newcommand{\escalaLogoUniversidade}[1]{
+ \newcommand{\escalaLogo}{#1}
+}
+
+\newcommand{\nomeProfessor}[1]{
+\newcommand{\professor}{#1}
+}
+
+\newcommand{\siglaRegistroAcademico}[1]{
+ \newcommand{\siglaRA}{#1}
+}
+
+\newcommand{\nomeDisciplina}[1]{
+\newcommand{\disciplina}{#1}
+}
+
+
+\newcommand{\dataDaProva}[1]{
+\newcommand{\data}{#1}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Texto do cabecalho 
+\lhead{\includegraphics[width=0.09\textwidth]{fig/rfb}}
+\chead{\textbf{Ministério da Educação\\\universidade}\\\curso}
+\rhead{\includegraphics[scale=\escalaLogo]{\logo}}
+
+% Texto do rodape
+\footrule
+\lfoot{}
+\cfoot{}
+\rfoot{\scriptsize Página \thepage\ de \numpages}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Informacoes
+\newcommand{\info}{
+	\begin{table}[h] 
+		\small 
+		\centering
+		\renewcommand{\arraystretch}{1.2}
+		\begin{tabular}{|m{12.5cm}|l|}
+			\hline
+			{\bf Nome:}                                                             & {\bf Data:} \data                             \\ \hline
+			{\bf \siglaRA:}                                                         & \multirow{3}{*}{}{\bf Nota da Avaliação:}     \\ \cline{1-1}
+			{\bf Disciplina:} \disciplina                                           &                                               \\ \cline{1-1}
+			{\bf Professor:} \professor                                             & \scriptsize \textit{Rúbrica do Professor}     \\ \hline
+			\multicolumn{2}{|p{17.5cm}|}{\texttt{Orientações Gerais:}}                                                              \\
+			\multicolumn{2}{|p{17.5cm}|}{\scriptsize 1 - \textbf{DESLIGUE E GUARDE O CELULAR}.}                                     \\
+			\multicolumn{2}{|p{17.5cm}|}{\scriptsize 2 - Preencha seu nome e número de Registro Acadêmico nas folhas utilizadas.}   \\
+			\multicolumn{2}{|p{17.5cm}|}{\scriptsize 3 - A interpretação das questões faz parte do processo de avaliação, não sendo permitidas consultas ou comunicação entre alunos.}                                                                                              \\
+			\multicolumn{2}{|p{17.5cm}|}{\scriptsize 4 - Os exercícios devem sem apresentados seguindo a estrutura da linguagem vista em sala de aula.}                                                                                                                        \\
+			\multicolumn{2}{|p{17.5cm}|}{\scriptsize 5 - Qualquer dúvida o aluno deverá chamar o(a) professor(a).}                  \\
+			%\multicolumn{2}{|p{15.5cm}|}{\scriptsize Pode-se utilizar uma folha A4 pra consulta; deve ser realizada à mão e somente a parte frontal (um dos lados!). Caso não sigam as regras a folha será recolhida e não poderá ser utilizada.} &  \\ 
+			\hline
+		\end{tabular}
+	\end{table}
+}
+
+% Pontuacao
+\newcommand{\pontuacao}{
+	\vspace{-0.3 cm}
+	\begin{center}
+		\small
+		\gradetable[h][questions]
+	\end{center}
+	\vspace{-0.2 cm}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Converte para portugues os textos
+
+\pointpoints{Ponto}{Pontos}
+\hqword{Questão:}
+\hpword{Pontos:}
+\hsword{Nota:}

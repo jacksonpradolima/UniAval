@@ -1,0 +1,34 @@
+Pilhas e filas:
+
+\begin{parts}
+    \part[5] Descreva as diferenças e semelhanças entre as estruturas de dados pilha e fila.
+    \fullwidth{Considerando a implementação de pilha e fila utilizando vetores e que as funções de manipulação já estão implementadas e seguem a assinatura:}
+    \texttt{void enfileira(int fila[], int valor, int *inicio, int* qtd);}\\
+    \texttt{int desenfileira(int fila[], int *inicio, int *qtd);}\\
+    \texttt{void empilha (int pilha[], int valor, int* topo);}\\
+    \texttt{int desempilha (int pilha[], int* topo);}
+    \part[10] Implemente uma função que receba como parâmetro uma fila. 
+    A função deverá obedecer a assinatura:\\\\
+    \texttt{void calcula(int fila[], int *inicio, int *qtd);}\\\\
+    A função deverá:   
+    \begin{subparts}
+        \subpart Declarar uma pilha vazia e inicializar o topo ($-1$).
+        \subpart Desenfileirar valores da fila até que a fila esteja vazia.
+        \subpart Para cada valor desenfileirado da fila:
+        \begin{itemize}
+            \item Se o valor desenfileirado for $1$ então desenfileira mais um valor da fila e empilha na pilha.
+            \item Se o valor desenfileirado for $2$ então desempilha dois valores da pilha, soma os dois valores e empilha o resultado na pilha.
+            \item Se o valor desenfileirado for $3$ então desempilha um valor e imprime na tela.
+        \end{itemize}
+    \end{subparts}
+    \label{part:calcula}
+    \part[15] Realize o teste de mesa da função implementada na letra \ref{part:calcula}. Considere como valor de entrada a seguinte fila:
+    
+    \begin{center}
+        \newcommand{\sep}{\hspace*{.8em}}
+        $\fbox{1} \fbox{4} \fbox{1} \fbox{5} \fbox{2} \fbox{1} \fbox{6} \fbox{2} \fbox{3}  $\\
+        {\tiny 0 \sep 1 \sep 2 \sep 3 \sep 4 \sep 5 \sep 6 \sep 7 \sep 8}
+    \end{center}
+    
+\end{parts}
+

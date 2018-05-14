@@ -1,0 +1,39 @@
+Listas encadeadas:
+\begin{parts}
+    \part[5] Descreva e compare as vantagens e desvantagens entre a utilização de vetores e listas encadeadas.
+    \fullwidth{Considerando uma lista encadeada para armazenar números inteiros:}
+    \part[5] Declare uma estrutura para representar um elemento da lista;
+    \fullwidth{Considerando que as funções \texttt{inserir} e \texttt{remover} da lista encadeada já estão implementadas e seguem a assinatura:}
+    \texttt{Item *inserir(Item *lista, int info);} \\
+    \texttt{Item *remover(Item *lista, int v);}
+
+    \part[20] Implemente uma função que receba como parâmetro uma lista encadeada.
+    A função deverá obedecer a assinatura:\\\\
+    \texttt{Item* separa (Item* lista);}\\\\
+    Utilizando as funções \texttt{insere} e \texttt{remove} já implementadas, a função deverá:   
+    \begin{subparts}
+        \subpart Declarar uma nova lista vazia.
+        \subpart Copiar todos os elementos pares para a nova lista
+        \subpart Remover todos os elementos pares da lista original
+        \subpart Retornar o endereço da nova lista
+    \end{subparts}
+    \label{part:separa}
+    
+    \part[10] Realize o teste de mesa da função implementada na letra \ref{part:separa}. Considere como valor de entrada a seguinte lista encadeada:
+
+    \begin{tikzpicture}[every node/.style={rectangle split, rectangle split parts=2, rectangle split horizontal,minimum height=14pt}, node distance=1em, start chain,
+        every join/.style={->, shorten <=-4.5pt}]
+        
+        \node[draw, on chain, join] { 1  };
+        \node[draw, on chain, join] { 7  };
+        \node[draw, on chain, join] { 5  };
+        \node[draw, on chain, join] { 2  };
+        \node[draw, on chain, join] { 9  };
+        \node[draw, on chain, join] { 4  };
+        \node[draw, on chain, join] { 6  };
+        \node[draw, on chain, join] { 3  };
+        \node[on chain, join] { NULL  };
+        \chainlabel{chain-1.one north}{lista};
+    \end{tikzpicture}  
+
+\end{parts}
